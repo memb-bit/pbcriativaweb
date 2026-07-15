@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paraíba Criativa | Redesign Moderno</title>
+    <title>Paraíba Criativa</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,12 +16,13 @@
             --pb-red: #D32F2F;
             --pb-red-dark: #b71c1c;
             --pb-yellow: #FBC02D;
+            --pb-blue: #1976D2;
             --pb-dark: #212529;
             --pb-light: #f4f5f7;
         }
         
         body {
-            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--pb-light);
             color: var(--pb-dark);
         }
@@ -30,6 +31,7 @@
             background-color: #1a1a1a;
             color: #ccc;
             font-size: 0.8rem;
+            letter-spacing: 0.5px;
         }
 
         .bg-pb-red {
@@ -40,7 +42,7 @@
             font-weight: 900;
             color: #ffffff !important;
             font-size: 1.5rem;
-            cursor: pointer;
+            letter-spacing: -0.5px;
         }
         
         .navbar-dark .navbar-nav .nav-link {
@@ -50,7 +52,7 @@
             font-size: 0.9rem;
             cursor: pointer;
             padding: 0.5rem 1rem;
-            transition: color 0.2s;
+            transition: all 0.2s ease-in-out;
         }
         
         .navbar-dark .navbar-nav .nav-link:hover,
@@ -58,12 +60,17 @@
             color: var(--pb-yellow) !important;
         }
 
-        /* Grid de Alto Impacto */
         .hero-card {
             border: none;
             border-radius: 6px;
             overflow: hidden;
+            transition: transform 0.2s ease;
             position: relative;
+        }
+        
+        .hero-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         
         .hero-card img {
@@ -81,7 +88,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
             padding: 2rem;
         }
         
@@ -93,18 +100,28 @@
         }
         
         .hero-main { height: 450px; }
-        .hero-sub { height: 215px; cursor: pointer; }
+        .hero-sub { height: 215px; }
 
-        /* Cards Padrão */
+        .badge-custom {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.4em 0.8em;
+            border-radius: 4px;
+        }
+        .badge-cultura { background-color: var(--pb-red); color: white; }
+        .badge-musica { background-color: var(--pb-yellow); color: #000; }
+        .badge-turismo { background-color: var(--pb-blue); color: white; }
+
         .modern-card {
             border: none;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
         .modern-card:hover {
-            transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(0,0,0,0.1);
         }
         .modern-card img {
@@ -114,12 +131,11 @@
             height: 200px;
         }
 
-        /* SPAs View Management */
-        .page-view { display: none; }
-        .page-view.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+        .page-view { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .page-view.active { display: block; }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
@@ -128,6 +144,7 @@
             padding-bottom: 10px;
             margin-bottom: 24px;
             font-weight: 800;
+            color: var(--pb-dark);
         }
         .section-title::after {
             content: '';
@@ -139,41 +156,26 @@
             background-color: var(--pb-red);
             border-radius: 2px;
         }
-
-        /* Paginação Customizada */
-        .pagination-vermelha .page-item.active .page-link {
-            background-color: var(--pb-red) !important;
-            border-color: var(--pb-red) !important;
-            color: #fff !important;
-        }
-        .pagination-vermelha .page-link {
-            color: var(--pb-red);
-        }
-        .pagination-vermelha .page-link:hover {
-            background-color: #f8d7da;
-            border-color: var(--pb-red);
-            color: #a71d2a;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Topbar -->
+    <!-- Topbar Institucional -->
     <div class="topbar py-2 d-none d-md-block">
         <div class="container d-flex justify-content-between align-items-center">
             <span>Portal do Patrimônio Cultural e Criativo da Paraíba</span>
             <div class="d-flex gap-3">
-                <a href="#" class="text-light text-decoration-none"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="text-light text-decoration-none"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="text-light text-decoration-none"><i class="bi bi-youtube"></i></a>
+                <a href="#" class="text-light text-decoration-none hover-warning"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-light text-decoration-none hover-warning"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-light text-decoration-none hover-warning"><i class="bi bi-youtube"></i></a>
             </div>
         </div>
     </div>
 
-    <!-- Navigation Menu -->
+    <!-- Main Navigation - Menu Vermelho -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-pb-red sticky-top shadow">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" onclick="navigate('home', this)">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#" onclick="navigate('home', this)">
                 <i class="bi bi-sun-fill text-warning fs-3"></i> 
                 <span>Paraíba<span class="fw-light">Criativa</span></span>
             </a>
@@ -184,9 +186,10 @@
             
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
-                    <li class="nav-item"><a class="nav-link" onclick="navigate('inventario', this)">Inventário</a></li>
-                    <li class="nav-item"><a class="nav-link" onclick="navigate('noticias', this)">Notícias</a></li>
-                    <li class="nav-item"><a class="nav-link" onclick="navigate('contato', this)">Contato</a></li>
+                    <!-- IDs adicionados para o JavaScript poder localizar facilmente -->
+                    <li class="nav-item"><a class="nav-link" id="menu-inventario" onclick="navigate('inventario', this)">Inventário</a></li>
+                    <li class="nav-item"><a class="nav-link" id="menu-noticias" onclick="navigate('noticias', this)">Notícias</a></li>
+                    <li class="nav-item"><a class="nav-link" id="menu-contato" onclick="navigate('contato', this)">Contato</a></li>
                 </ul>
                 <form class="d-flex ms-lg-4 mt-3 mt-lg-0">
                     <div class="input-group">
@@ -201,63 +204,61 @@
     <!-- CONTENT WRAPPER -->
     <main class="container my-5">
 
-        <!-- ==================== PÁGINA: HOME ==================== -->
+        <!-- ==================== PÁGINA: INÍCIO ==================== -->
         <section id="home" class="page-view active">
-            <!-- Hero Area -->
             <div class="row g-3 mb-5">
                 <div class="col-lg-8">
-                    <div class="card bg-dark text-white hero-card hero-main" style="cursor: pointer;" onclick="navigate('noticia-interna', document.querySelector('.nav-link[onclick*=\\'noticias\\']'))">
+                    <div class="card bg-dark text-white hero-card hero-main" onclick="navigate('noticia-interna', document.getElementById('menu-noticias'))">
                         <img src="Junina-Fogueirinha-1024x576.jpg" class="card-img" alt="São João">
                         <div class="card-img-overlay">
-                            <span class="badge bg-danger mb-3 align-self-start text-uppercase p-2">Patrimônio Imaterial</span>
+                            <span class="badge badge-custom badge-cultura mb-3 align-self-start">Patrimônio Imaterial</span>
                             <h1 class="card-title hero-title">As Raízes do Maior São João do Mundo: Tradição e Modernidade</h1>
-                            <p class="card-text fs-5 d-none d-md-block mt-2 text-light">Como Campina Grande se prepara para receber milhões de turistas unindo o forró autêntico a grandes estruturas.</p>
+                            <p class="card-text fs-5 d-none d-md-block mt-2 text-light">Como Campina Grande se prepara para receber milhões de turistas unindo a tradição do forró autêntico com grandes estruturas contemporâneas.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 d-flex flex-column gap-3">
-                    <div class="card bg-dark text-white hero-card hero-sub" onclick="navigate('verbete', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">
+                    <div class="card bg-dark text-white hero-card hero-sub" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
                         <img src="artesanato.jpg" class="card-img" alt="Artesanato">
                         <div class="card-img-overlay p-3">
-                            <span class="badge bg-primary mb-2 align-self-start text-uppercase p-2">Artesanato</span>
+                            <span class="badge badge-custom badge-turismo mb-2 align-self-start">Artesanato</span>
                             <h3 class="card-title hero-title fs-4">A fonte de renda do Cariri Paraibano</h3>
                         </div>
                     </div>
-                    <div class="card bg-dark text-white hero-card hero-sub" onclick="navigate('verbete', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">
-                        <img src="jack.jpg" class="card-img" alt="Música">
+                    <div class="card bg-dark text-white hero-card hero-sub" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                        <img src="jack.jpg" class="card-img" alt="Praia">
                         <div class="card-img-overlay p-3">
-                            <span class="badge bg-warning text-dark mb-2 align-self-start text-uppercase p-2">Música</span>
+                            <span class="badge badge-custom badge-musica mb-2 align-self-start">Música</span>
                             <h3 class="card-title hero-title fs-4">Jackson do Pandeiro e o Legado do Ritmo</h3>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Destaques -->
             <div class="d-flex justify-content-between align-items-end mb-4">
                 <h3 class="section-title m-0">Destaques do Inventário</h3>
-                <button class="btn btn-outline-danger btn-sm fw-bold" onclick="navigate('inventario', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">Acervo Completo <i class="bi bi-arrow-right"></i></button>
+                <button class="btn btn-outline-danger btn-sm fw-bold" onclick="navigate('inventario', document.getElementById('menu-inventario'))">Acervo Completo <i class="bi bi-arrow-right"></i></button>
             </div>
             
             <div class="row g-4 mb-5">
                 <div class="col-md-4">
-                    <div class="card h-100 modern-card" onclick="navigate('verbete', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">
+                    <div class="card h-100 modern-card" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
                         <img src="centro cultural.jpg" class="card-img-top" alt="Centro Histórico">
                         <div class="card-body d-flex flex-column">
                             <span class="text-danger small fw-bold mb-2 text-uppercase">Arquitetura</span>
                             <h5 class="card-title fw-bold text-dark">Centro Cultural São Francisco</h5>
-                            <p class="card-text text-secondary small flex-grow-1">Complexo arquitetônico e religioso barroco, marco fundamental do centro histórico de João Pessoa.</p>
+                            <p class="card-text text-secondary small flex-grow-1">É um complexo arquitetônico cultural e religioso formado pelo Convento Igreja de Santo Antônio, Casa de Oração, e Claustro da Ordem Terceira de São Francisco.</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-md-4">
-                    <div class="card h-100 modern-card" onclick="navigate('verbete', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">
+                    <div class="card h-100 modern-card" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
                         <img src="Pedra-do-inga.jpg" class="card-img-top" alt="Pedra do Ingá">
                         <div class="card-body d-flex flex-column">
                             <span class="text-danger small fw-bold mb-2 text-uppercase">Patrimônio Natural</span>
                             <h5 class="card-title fw-bold text-dark">Pedra do Ingá</h5>
-                            <p class="card-text text-secondary small flex-grow-1">Monumento arqueológico mundialmente famoso com intrigantes inscrições rupestres gravadas na rocha.</p>
+                            <p class="card-text text-secondary small flex-grow-1">Monumento arqueológico mundialmente famoso com inscrições rupestres de significado misterioso cravadas na rocha.</p>
                         </div>
                     </div>
                 </div>
@@ -265,259 +266,338 @@
                 <div class="col-md-4">
                     <div class="card h-100 border-0 shadow-sm bg-pb-red text-white">
                         <div class="card-body p-4 d-flex flex-column justify-content-center align-items-center text-center">
-                            <i class="bi bi-map text-warning display-4 mb-3"></i>
-                            <h4 class="fw-bold mb-2">Mapeamento</h4>
-                            <p class="small mb-4 opacity-75">Explore e descubra a riqueza artística de todos os 223 municípios da Paraíba.</p>
-                            <a href="https://www.google.com/maps/place/Paraíba" target="_blank" class="btn btn-warning fw-bold text-dark w-100">Ver Mapa Interativo</a>
+                            <i class="bi bi-map text-warning display-3 mb-3"></i>
+                            <h4 class="fw-bold mb-3">Mapeamento Cultural</h4>
+                            <p class="small mb-4 opacity-75">Conheça, explore e ajude a preserve a riqueza material e imaterial dos 223 municípios do nosso estado.</p>
+                            <a href="https://www.google.com/maps/place/Paraíba" target="_blank" class="btn btn-warning fw-bold text-dark w-100">Acessar Mapa da Paraíba</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==================== PÁGINA: INVENTÁRIO GERAL ==================== -->
+        <!-- ==================== PÁGINA: INVENTÁRIO ==================== -->
         <section id="inventario" class="page-view">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" class="text-danger text-decoration-none" onclick="navigate('home', null)">Início</a></li>
+                    <li class="breadcrumb-item active text-secondary">Inventário Cultural</li>
+                </ol>
+            </nav>
+            
             <div class="row mb-5 align-items-end">
                 <div class="col-lg-8">
                     <h2 class="section-title">Inventário Cultural</h2>
-                    <p class="text-secondary fs-5 m-0">Registro oficial das artes e patrimônios da Paraíba</p>
+                    <p class="text-secondary fs-5 m-0">Registro das artes e culturas da Paraíba</p>
                 </div>
                 <div class="col-lg-4 mt-3 mt-lg-0">
-                    <select class="form-select border-danger shadow-sm">
-                        <option selected>Todas as Categorias</option>
-                        <option>Arquitetura</option>
-                        <option>Artesanato</option>
-                        <option>Música</option>
-                        <option>Gastronomia</option>
-                    </select>
+                    <div class="input-group shadow-sm">
+                        <span class="input-group-text bg-white border-end-0"><i class="bi bi-funnel text-muted"></i></span>
+                        <select class="form-select border-start-0">
+                            <option selected>Todas as Categorias</option>
+                            <option value="1">Arquitetura</option>
+                            <option value="2">Artesanato</option>
+                            <option value="3">Música</option>
+                            <option value="4">Gastronomia Regional</option>
+                            <option value="5">Patrimônio Natural</option>
+                            <option value="6">Personalidades</option>
+                            <option value="7">Cultura Popular</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
+            <!-- Grid de Inventário (Cartões Modernos) -->
             <div class="row g-4">
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('verbete', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">
-                        <img src="centro cultural.jpg" class="card-img-top" alt="São Francisco">
+                    <div class="card modern-card h-100" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                        <img src="centro cultural.jpg" class="card-img-top" alt="Card image">
                         <div class="card-body">
-                            <span class="badge bg-danger mb-2">Arquitetura</span>
+                            <span class="badge bg-secondary mb-2">Arquitetura</span>
                             <h5 class="card-title fw-bold">Centro Cultural São Francisco</h5>
-                            <p class="card-text text-muted small">Um dos mais monumentais complexos barrocos do Brasil, localizado no coração histórico da capital.</p>
+                            <p class="card-text text-muted small">É um complexo arquitetônico cultural e religioso formado pelo Convento Igreja de Santo Antônio, Casa de Oração, e Claustro da Ordem Terceira de São Francisco.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('verbete', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">
-                        <img src="Sivuca-1.jpg" class="card-img-top" alt="Sivuca">
+                    <div class="card modern-card h-100" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                        <img src="Sivuca-1.jpg" class="card-img-top" alt="Card image">
                         <div class="card-body">
-                            <span class="badge bg-warning text-dark mb-2">Música</span>
+                            <span class="badge bg-secondary mb-2">Música</span>
                             <h5 class="card-title fw-bold">Sivuca</h5>
-                            <p class="card-text text-muted small">Multinstrumentista, arranjador e maestro paraibano que levou a sanfona e a cultura nordestina ao mundo.</p>
+                            <p class="card-text text-muted small">Mestre Sivuca foi um acordeonista, violonista, guitarrista, pianista, percussionista, maestro, arranjador, compositor, orquestrador e cantor. Um dos mais importantes músicos do século XX.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('verbete', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">
-                        <img src="Junina-Fogueirinha-1024x576.jpg" class="card-img-top" alt="Quadrilha Fogueirinha">
+                    <div class="card modern-card h-100" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                        <img src="Junina-Fogueirinha-1024x576.jpg" class="card-img-top" alt="Card image">
                         <div class="card-body">
-                            <span class="badge bg-primary mb-2">Cultura Popular</span>
+                            <span class="badge bg-secondary mb-2">Cultura Popular</span>
                             <h5 class="card-title fw-bold">Quadrilha Junina Fogueirinha</h5>
-                            <p class="card-text text-muted small">Gigante da cultura junina de João Pessoa, mantendo vivas as cores e coreografias do São João.</p>
+                            <p class="card-text text-muted small">A Quadrilha Junina Fogueirinha é um símbolo da cultura popular paraibana. Nascida no coração do bairro Cruz das Armas, em João Pessoa.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('verbete', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">
-                        <img src="Arroz-de-leite-com-carne-de-sol.jpg" class="card-img-top" alt="Prato regional">
+                    <div class="card modern-card h-100" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                    <img src="Arroz-de-leite-com-carne-de-sol.jpg" class="card-img-top" alt="Carne de Sol de Picuí">
                         <div class="card-body">
-                            <span class="badge bg-success mb-2">Gastronomia</span>
+                            <span class="badge bg-secondary mb-2">Gastronomia</span>
                             <h5 class="card-title fw-bold">Arroz de Leite com Carne de Sol</h5>
-                            <p class="card-text text-muted small">A clássica e saborosa união da cremosidade do arroz de leite com a marcante carne de sol do sertão.</p>
+                            <p class="card-text text-muted small">O  arroz de leite é um prato típico da culinária nordestina, amado principalmente pelo povo paraibano. Sua melhor combinação é feita com carne de sol.</p>
                         </div>
                     </div>
                 </div>
             </div>
             
             <nav class="mt-5">
-                <ul class="pagination justify-content-center pagination-vermelha">
-                    <li class="page-item disabled"><a class="page-link" href="#" onclick="event.preventDefault()">Anterior</a></li>
-                    <li class="page-item active"><a class="page-link" href="#" onclick="event.preventDefault()">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#" onclick="event.preventDefault(); navigate('inventario-p2', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#" onclick="event.preventDefault(); navigate('inventario-p2', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">Próximo</a></li>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled"><a class="page-link text-muted" href="#" onclick="event.preventDefault()">Anterior</a></li>
+                    <li class="page-item active"><a class="page-link bg-pb-red border-danger text-white" href="#" onclick="event.preventDefault(); navigate('inventario', document.getElementById('menu-inventario'))">1</a></li>
+                    <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault(); navigate('inventario-p2', document.getElementById('menu-inventario'))">2</a></li>
+                    <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault()">3</a></li>
+                    <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault(); navigate('inventario-p2', document.getElementById('menu-inventario'))">Próximo</a></li>
                 </ul>
             </nav>
         </section>
 
         <!-- ==================== PÁGINA: INVENTÁRIO - PÁGINA 2 ==================== -->
         <section id="inventario-p2" class="page-view">
-            <!-- Seta Voltar para o Inventário Geral -->
-            <div class="mb-4">
-                <a href="#" class="text-danger text-decoration-none fw-bold d-inline-flex align-items-center gap-1" onclick="event.preventDefault(); navigate('inventario', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">
-                    <i class="bi bi-arrow-left-short fs-4"></i> Voltar para o Inventário Geral
-                </a>
-            </div>
-
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" class="text-danger text-decoration-none" onclick="navigate('home', null)">Início</a></li>
+                    <li class="breadcrumb-item active text-secondary">Inventário Cultural - Página 2</li>
+                </ol>
+            </nav>
+            
             <div class="row mb-5 align-items-end">
                 <div class="col-lg-8">
-                    <h2 class="section-title">Inventário Cultural</h2>
-                    <p class="text-secondary fs-5 m-0">Página 2 - Monumentos e belezas criativas</p>
+                    <h2 class="section-title">Inventário Cultural da Paraíba</h2>
+                    <p class="text-secondary fs-5 m-0">Catálogo oficial de manifestações, artistas, monumentos e espaços criativos.</p>
+                </div>
+                <div class="col-lg-4 mt-3 mt-lg-0">
+                    <div class="input-group shadow-sm">
+                        <span class="input-group-text bg-white border-end-0"><i class="bi bi-funnel text-muted"></i></span>
+                        <select class="form-select border-start-0">
+                            <option selected>Todas as Categorias</option>
+                            <option value="1">Arquitetura e Monumentos</option>
+                            <option value="2">Artesanato e Manualidades</option>
+                            <option value="3">Música e Dança</option>
+                            <option value="4">Gastronomia Regional</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
             <div class="row g-4">
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('verbete', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">
+                    <div class="card modern-card h-100" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
                         <img src="https://images.unsplash.com/photo-1599939571322-792a326e90fb?q=80&w=500&auto=format&fit=crop" class="card-img-top" alt="Fortaleza">
                         <div class="card-body">
-                            <span class="badge bg-secondary mb-2">História</span>
+                            <span class="badge bg-secondary mb-2">Arquitetura Militar</span>
                             <h5 class="card-title fw-bold">Fortaleza de Santa Catarina</h5>
-                            <p class="card-text text-muted small">Fortificação colonial localizada em Cabedelo, guardiã histórica da foz do Rio Paraíba.</p>
+                            <p class="card-text text-muted small">Localizada em Cabedelo, é um dos mais importantes monumentos militares do período colonial brasileiro na Paraíba.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('verbete', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">
-                        <img src="https://images.unsplash.com/photo-1628169115201-9a99723cf799?q=80&w=500&auto=format&fit=crop" class="card-img-top" alt="Farol">
+                    <div class="card modern-card h-100" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                        <img src="https://images.unsplash.com/photo-1628169115201-9a99723cf799?q=80&w=500&auto=format&fit=crop" class="card-img-top" alt="Farol do Cabo Branco">
                         <div class="card-body">
                             <span class="badge bg-secondary mb-2">Monumento</span>
                             <h5 class="card-title fw-bold">Farol do Cabo Branco</h5>
-                            <p class="card-text text-muted small">Ícone de arquitetura única que demarca as proximidades do ponto mais oriental das Américas.</p>
+                            <p class="card-text text-muted small">Símbolo de João Pessoa com forma triangular única, marca as proximidades da Ponta do Seixas, o ponto mais oriental das Américas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card modern-card h-100" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                        <div class="bg-light d-flex align-items-center justify-content-center" style="height: 200px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+                            <i class="bi bi-people text-muted fs-1 opacity-25"></i>
+                        </div>
+                        <div class="card-body">
+                            <span class="badge bg-secondary mb-2">Espaço Cultural</span>
+                            <h5 class="card-title fw-bold">Parque do Povo</h5>
+                            <p class="card-text text-muted small">Coração dos festejos em Campina Grande, é mundialmente conhecido por abrigar o evento "O Maior São João do Mundo".</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card modern-card h-100" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                        <img src="https://images.unsplash.com/photo-1506509536831-7e8cc40e53a5?q=80&w=500&auto=format&fit=crop" class="card-img-top" alt="Pôr do Sol">
+                        <div class="card-body">
+                            <span class="badge bg-secondary mb-2">Patrimônio Imaterial</span>
+                            <h5 class="card-title fw-bold">Pôr do Sol do Jacaré</h5>
+                            <p class="card-text text-muted small">Espetáculo natural diário ao som do Bolero de Ravel executado no saxofone, uma tradição turística e cultural inesquecível.</p>
                         </div>
                     </div>
                 </div>
             </div>
             
             <nav class="mt-5">
-                <ul class="pagination justify-content-center pagination-vermelha">
-                    <li class="page-item"><a class="page-link" href="#" onclick="event.preventDefault(); navigate('inventario', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">Anterior</a></li>
-                    <li class="page-item"><a class="page-link" href="#" onclick="event.preventDefault(); navigate('inventario', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">1</a></li>
-                    <li class="page-item active"><a class="page-link" href="#" onclick="event.preventDefault()">2</a></li>
-                    <li class="page-item disabled"><a class="page-link" href="#" onclick="event.preventDefault()">Próximo</a></li>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault(); navigate('inventario', document.getElementById('menu-inventario'))">Anterior</a></li>
+                    <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault(); navigate('inventario', document.getElementById('menu-inventario'))">1</a></li>
+                    <li class="page-item active"><a class="page-link bg-pb-red border-danger text-white" href="#" onclick="event.preventDefault(); navigate('inventario-p2', document.getElementById('menu-inventario'))">2</a></li>
+                    <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault()">3</a></li>
+                    <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault()">Próximo</a></li>
                 </ul>
             </nav>
         </section>
 
-        <!-- ==================== PÁGINA: VERBETE (DETALHE DO INVENTÁRIO) ==================== -->
+        <!-- ==================== PÁGINA: VERBETE ==================== -->
         <section id="verbete" class="page-view">
-            <!-- Seta Voltar para o Inventário Geral -->
-            <div class="mb-4">
-                <a href="#" class="text-danger text-decoration-none fw-bold d-inline-flex align-items-center gap-1" onclick="event.preventDefault(); navigate('inventario', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))">
-                    <i class="bi bi-arrow-left-short fs-4"></i> Voltar para o Inventário Geral
-                </a>
-            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" class="text-danger text-decoration-none" onclick="navigate('home', null)">Início</a></li>
+                    <li class="breadcrumb-item"><a href="#" class="text-danger text-decoration-none" onclick="navigate('inventario', document.getElementById('menu-inventario'))">Inventário</a></li>
+                    <li class="breadcrumb-item active text-secondary">Centro Cultural São Francisco</li>
+                </ol>
+            </nav>
 
-            <div class="row">
+            <div class="row mt-4">
                 <div class="col-lg-8">
-                    <span class="badge bg-danger mb-3 text-uppercase p-2">Arquitetura</span>
+                    <span class="badge badge-custom badge-turismo mb-3">Arquitetura</span>
                     <h1 class="fw-bolder mb-3 text-dark">Centro Cultural São Francisco</h1>
-                    <p class="lead text-secondary fw-normal mb-4">Complexo colonial de importância internacional e um dos maiores legados artísticos do barroco no Brasil.</p>
+                    <p class="lead text-secondary fw-normal mb-4">É um complexo arquitetônico cultural e religioso formado pelo Convento Igreja de Santo Antônio, Casa de Oração, e Claustro da Ordem Terceira de São Francisco.</p>
                     
-                    <img src="centro cultural.jpg" class="img-fluid rounded shadow mb-4" alt="Igreja de São Francisco">
+                    <div class="position-relative mb-5">
+                        <img src="centro cultural.jpg" class="img-fluid rounded shadow" alt="Igreja de São Francisco">
+                    </div>
                     
                     <article class="fs-5 lh-lg text-dark">
-                        <p>O <strong>Centro Cultural São Francisco</strong>, localizado no Centro Histórico de João Pessoa, é composto pela belíssima Igreja de São Francisco, pelo Convento de Santo Antônio e capelas anexas repletas de talhas douradas e ricos painéis de azulejos portugueses.</p>
-                        <p>A construção iniciou-se em 1589 e destaca-se pelo adro imponente e o relógio de sol entalhado em pedra calcária, um dos ícones da história colonial paraibana.</p>
+                        <p>O <strong>Centro Cultural São Francisco</strong>, localizado na praça de mesmo nome, no centro histórico de João Pessoa, funciona em um complexo arquitetônico formado pela Igreja de São Francisco e pelo Convento de Santo Antônio, além da Capela da Ordem Terceira de São Francisco, a Capela de São Benedito, a Casa de Oração dos Terceiros (chamada de Capela Dourada) e o Claustro da Ordem Terceira.</p>
+                        
+                        <h3 class="fw-bold mt-5 mb-3">Arquitetura e História da Fundação</h3>
+                        <p>A construção do conjunto iniciou-se em 1589 com o projeto do Frei Francisco dos Santos e só foi concluída em 1788. A arquitetura, pautada na opulência do barroco tropical, se mistura à azulejaria portuguesa que narra a paixão de Cristo nos pátios externos, tornando o espaço um verdadeiro museu a céu aberto da história colonial paraibana.</p>
+                        
+                        <div class="p-4 bg-light rounded border-start border-4 border-danger my-5">
+                            <h5 class="fw-bold text-danger"><i class="bi bi-quote"></i> Curiosidade Histórica</h5>
+                            <p class="m-0 fs-6">A Igreja possui um relógio de sol no seu adro, entalhado em pedra calcária, que servia para orientar os freis nos horários das orações e missas diárias durante o período colonial.</p>
+                        </div>
+                        
+                        <h3 class="fw-bold mt-5 mb-3">Importância Cultural e Turística</h3>
+                        <p>Sendo um dos monumentos históricos mais visitados de João Pessoa, o Centro Cultural São Francisco não é apenas um templo religioso, mas um polo de estudos sobre a arte colonial. Estudantes, historiadores e turistas de todo o mundo visitam o complexo para observar os entalhes em madeira folheada a ouro e os painéis que resistiram aos séculos.</p>
+                        <p class="mb-5">Atualmente, o espaço sedia exposições temporárias de artistas nordestinos, além de apresentações de música erudita, mantendo viva a vocação do local como um grande difusor de arte e cultura.</p>
                     </article>
                 </div>
                 
-                <div class="col-lg-4">
-                    <div class="card border-0 bg-white shadow-sm p-4 position-sticky" style="top: 100px; border-top: 4px solid var(--pb-red) !important;">
-                        <h4 class="fw-bold mb-4">Ficha Técnica</h4>
-                        <div class="d-flex mb-3 align-items-start">
-                            <i class="bi bi-geo-alt-fill text-danger me-3 fs-5"></i>
-                            <div>
-                                <h6 class="fw-bold mb-1">Localização</h6>
-                                <p class="text-muted small m-0">Praça São Francisco, s/n - Centro, João Pessoa - PB</p>
+                <!-- Sidebar (Ficha Técnica) -->
+                <div class="col-lg-4 mt-5 mt-lg-0">
+                    <div class="position-sticky" style="top: 110px; z-index: 10;">
+                        <div class="card border-0 bg-white shadow-sm p-4" style="border-top: 4px solid var(--pb-red) !important;">
+                            <h4 class="fw-bold mb-4">Ficha Técnica</h4>
+                            
+                            <div class="d-flex mb-3 align-items-start">
+                                <i class="bi bi-tag-fill text-danger me-3 fs-5"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Categoria</h6>
+                                    <p class="text-muted small m-0">Arquitetura Histórica</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="d-flex mb-3 align-items-start">
-                            <i class="bi bi-shield-check text-danger me-3 fs-5"></i>
-                            <div>
-                                <h6 class="fw-bold mb-1">Tombamento</h6>
-                                <p class="text-muted small m-0">IPHAN (1952)</p>
+                        
+                            <div class="d-flex mb-3 align-items-start">
+                                <i class="bi bi-geo-alt-fill text-danger me-3 fs-5"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Localização</h6>
+                                    <p class="text-muted small m-0">Praça São Francisco, s/n - Centro Histórico, João Pessoa - PB</p>
+                                </div>
                             </div>
-                        </div>
-                        <hr class="my-4">
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-outline-danger fw-bold btn-sm"><i class="bi bi-share me-2"></i>Compartilhar</button>
+                            
+                            <div class="d-flex mb-3 align-items-start">
+                                <i class="bi bi-shield-check text-danger me-3 fs-5"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Tombamento</h6>
+                                    <p class="text-muted small m-0">IPHAN (1952) / IPHAEP</p>
+                                </div>
+                            </div>
+                            
+                            <hr class="my-4 text-muted">
+                            
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-outline-danger fw-bold"><i class="bi bi-share me-2"></i> Compartilhar</button>
+                                <button class="btn btn-light border"><i class="bi bi-printer me-2"></i> Imprimir Ficha</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> <!-- Fecha a row -->
         </section>
 
         <!-- ==================== PÁGINA: NOTÍCIAS ==================== -->
         <section id="noticias" class="page-view">
-            <div class="row mb-5">
-                <div class="col-12">
+            <div class="row mb-5 align-items-end">
+                <div class="col-lg-8">
                     <h2 class="section-title m-0">Painel de Notícias</h2>
+                </div>
+                <div class="col-lg-4 mt-3 mt-lg-0">
+                    <div class="input-group shadow-sm">
+                        <span class="input-group-text bg-white border-end-0"><i class="bi bi-funnel text-muted"></i></span>
+                        <select class="form-select border-start-0" id="filtroNoticiasCategoria">
+                            <option value="todas" selected>Todas as Notícias</option>
+                            <option value="eventos">Eventos e Editais</option>
+                            <option value="institucional">Cultura</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             
             <div class="row g-4">
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('noticia-interna', document.querySelector('.nav-link[onclick*=\\'noticias\\']'))">
+                    <div class="card modern-card h-100" onclick="navigate('noticia-interna', document.getElementById('menu-noticias'))">
                         <img src="MAPP-1.jpeg" class="card-img-top" alt="Notícia 1">
                         <div class="card-body d-flex flex-column">
-                            <div class="d-flex justify-content-between mb-2">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
                                 <span class="badge bg-danger">Eventos</span>
-                                <span class="text-muted small"><i class="bi bi-calendar3"></i> 14 Jul 2026</span>
+                                <span class="text-muted small fw-semibold"><i class="bi bi-calendar3 me-1"></i> 14 Jul 2026</span>
                             </div>
-                            <h5 class="card-title fw-bold text-dark">Abertura do 42º Salão do Artesanato</h5>
-                            <p class="card-text text-secondary small flex-grow-1">Salão reúne o melhor da produção de habilidade manual do estado de forma integrada ao Maior São João do Mundo.</p>
-                            <span class="btn btn-outline-danger btn-sm fw-bold mt-3">Ler matéria <i class="bi bi-arrow-right"></i></span>
+                            <h5 class="card-title fw-bold text-dark mt-2">Paraíba Criativa acompanha abertura do 42º Salão do Artesanato</h5>
+                            <p class="card-text text-secondary small flex-grow-1">Realizado durante o período do Maior São João do Mundo, o salão acontece no terreno ao lado do Village Premium Hotel.</p>
+                            <span class="btn btn-outline-danger btn-sm fw-bold w-100 mt-2">Ler matéria <i class="bi bi-arrow-right ms-1"></i></span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('noticia-interna', document.querySelector('.nav-link[onclick*=\\'noticias\\']'))">
+                    <div class="card modern-card h-100" onclick="navigate('noticia-interna-2', document.getElementById('menu-noticias'))">
                         <img src="Gua-e-o-Guloso-2-1024x682.png" class="card-img-top" alt="Notícia 2">
                         <div class="card-body d-flex flex-column">
-                            <div class="d-flex justify-content-between mb-2">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
                                 <span class="badge bg-primary">Cultura</span>
-                                <span class="text-muted small"><i class="bi bi-calendar3"></i> 10 Jul 2026</span>
+                                <span class="text-muted small fw-semibold"><i class="bi bi-calendar3 me-1"></i> 10 Jul 2026</span>
                             </div>
-                            <h5 class="card-title fw-bold text-dark">Musical Infantil 'Guã e o Guloso'</h5>
-                            <p class="card-text text-secondary small flex-grow-1">Espetáculo de grande sucesso regional inicia temporada de apresentações no histórico Teatro Lima Penante.</p>
-                            <span class="btn btn-outline-danger btn-sm fw-bold mt-3">Ler matéria <i class="bi bi-arrow-right"></i></span>
+                            <h5 class="card-title fw-bold text-dark mt-2">Espetáculo infantil ‘Guã e o Guloso: O Musical’ estreia neste final de semana</h5>
+                            <p class="card-text text-secondary small flex-grow-1">Nos dias 06 e 07 de junho, o público de João Pessoa poderá acompanhar a estreia no tradicional Teatro Lima Penante.</p>
+                            <span class="btn btn-outline-danger btn-sm fw-bold w-100 mt-2">Ler matéria <i class="bi bi-arrow-right ms-1"></i></span>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('noticia-interna', document.querySelector('.nav-link[onclick*=\\'noticias\\']'))">
+                    <div class="card modern-card h-100" onclick="navigate('noticia-interna', document.getElementById('menu-noticias'))">
                         <img src="Teatro-Severino-Cabral.jpg" class="card-img-top" alt="Notícia 3">
                         <div class="card-body d-flex flex-column">
-                            <div class="d-flex justify-content-between mb-2">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
                                 <span class="badge bg-warning text-dark">Cultura</span>
-                                <span class="text-muted small"><i class="bi bi-calendar3"></i> 05 Jul 2026</span>
+                                <span class="text-muted small fw-semibold"><i class="bi bi-calendar3 me-1"></i> 05 Jul 2026</span>
                             </div>
-                            <h5 class="card-title fw-bold text-dark">Espetáculo 'As Luas em Mim' retorna</h5>
-                            <p class="card-text text-secondary small flex-grow-1">Montagem consagrada retorna ao palco em apresentação única no Teatro Municipal Severino Cabral.</p>
-                            <span class="btn btn-outline-danger btn-sm fw-bold mt-3">Ler matéria <i class="bi bi-arrow-right"></i></span>
+                            <h5 class="card-title fw-bold text-dark mt-2">Espetáculo ‘As Luas em Mim’ retorna aos palcos</h5>
+                            <p class="card-text text-secondary small flex-grow-1">O espetáculo teatral volta aos palcos em apresentação única no Teatro Paulo Pontes, anexo ao Teatro Severino Cabral.</p>
+                            <span class="btn btn-outline-danger btn-sm fw-bold w-100 mt-2">Ler matéria <i class="bi bi-arrow-right ms-1"></i></span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- ==================== PÁGINA: DETALHE DA NOTÍCIA ==================== -->
-        <section id="noticia-interna" class="page-view">
-            <div class="mb-4">
-                <a href="#" class="text-danger text-decoration-none fw-bold d-inline-flex align-items-center gap-1" onclick="event.preventDefault(); navigate('noticias', document.querySelector('.nav-link[onclick*=\\'noticias\\']'))">
-                    <i class="bi bi-arrow-left-short fs-4"></i> Voltar para Notícias
-                </a>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <span class="badge bg-danger mb-3 p-2 text-uppercase">Cultura</span>
-                    <h1 class="fw-bolder mb-3 text-dark">Foco na Economia Criativa: Paraíba em Destaque</h1>
-                    <p class="text-muted"><i class="bi bi-calendar3 me-1"></i> Publicado em Julho de 2026</p>
-                    <img src="MAPP-1.jpeg" class="img-fluid rounded shadow mb-4" alt="Destaque">
-                    <article class="fs-5 lh-lg text-dark">
-                        <p>O Portal Paraíba Criativa acompanha de perto os grandes marcos e projetos de fomento cultural em nosso território. De feiras tradicionais a exibições teatrais independentes, nosso estado brilha como um autêntico polo gerador de arte, renda e turismo sustentável.</p>
-                    </article>
-                </div>
+                
+                <nav aria-label="Navegação de páginas de notícias" class="mt-5 mb-4 d-flex justify-content-center">
+                    <ul class="pagination pagination-danger">
+                        <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a></li>
+                        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+                    </ul>
+                </nav>
             </div>
         </section>
 
@@ -526,27 +606,36 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
-                        <h2 class="section-title d-inline-block">Fale Conosco</h2>
-                        <p class="text-secondary fs-5 mt-3">Mande suas dúvidas, correções de dados ou sugestões de novas pautas para a Paraíba Criativa.</p>
+                        <h2 class="section-title d-inline-block">Fale Conosco!</h2>
+                        <p class="text-secondary fs-5 mt-3">Tem alguma sugestão de pauta, quer relatar um problema ou cadastrar um novo bem cultural? Envie sua mensagem para nossa equipe.</p>
                     </div>
                     
                     <div class="card border-0 shadow-lg p-4 p-md-5 rounded-4 bg-white">
                         <form>
                             <div class="row g-4">
                                 <div class="col-md-6">
-                                    <label class="form-label fw-bold">Nome Completo</label>
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Ex: Maria da Silva">
+                                    <label class="form-label fw-bold text-dark">Nome Completo</label>
+                                    <input type="text" class="form-control form-control-lg bg-light border-0" placeholder="Ex: Maria da Silva">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label fw-bold">E-mail</label>
-                                    <input type="email" class="form-control bg-light border-0" placeholder="maria@email.com">
+                                    <label class="form-label fw-bold text-dark">E-mail</label>
+                                    <input type="email" class="form-control form-control-lg bg-light border-0" placeholder="maria@email.com">
                                 </div>
                                 <div class="col-12">
-                                    <label class="form-label fw-bold">Mensagem</label>
-                                    <textarea class="form-control bg-light border-0" rows="5" placeholder="Sua mensagem..."></textarea>
+                                    <label class="form-label fw-bold text-dark">Assunto</label>
+                                    <select class="form-select form-select-lg bg-light border-0">
+                                        <option>Selecione um tópico...</option>
+                                        <option>Sugestão de Pauta / Notícia</option>
+                                        <option>Correção de Dados</option>
+                                        <option>Parcerias</option>
+                                    </select>
                                 </div>
-                                <div class="col-12 pt-2">
-                                    <button type="button" class="btn btn-danger btn-lg w-100 fw-bold shadow" onclick="alert('Mensagem enviada com sucesso!')">
+                                <div class="col-12">
+                                    <label class="form-label fw-bold text-dark">Sua Mensagem</label>
+                                    <textarea class="form-control form-control-lg bg-light border-0" rows="6" placeholder="Escreva os detalhes aqui..."></textarea>
+                                </div>
+                                <div class="col-12 mt-4 pt-2">
+                                    <button type="button" class="btn btn-danger btn-lg w-100 fw-bold shadow" onclick="alert('Sua mensagem foi enviada ao Paraíba Criativa!')">
                                         <i class="bi bi-send-fill me-2"></i> Enviar Mensagem
                                     </button>
                                 </div>
@@ -559,70 +648,73 @@
 
     </main>
 
-    <!-- Footer -->
+    <!-- Footer Institucional -->
     <footer class="bg-dark text-white py-5 mt-auto border-top border-5 border-danger">
-        <div class="container">
+        <div class="container mt-3">
             <div class="row g-4 mb-4">
                 <div class="col-md-5 pe-md-5">
-                    <a class="navbar-brand d-flex align-items-center gap-2 mb-3" onclick="navigate('home', this)">
+                    <a class="navbar-brand d-flex align-items-center gap-2 mb-3" href="#" onclick="navigate('home', null)">
                         <i class="bi bi-sun-fill text-warning fs-3"></i> 
                         <span>Paraíba<span class="fw-light">Criativa</span></span>
                     </a>
-                    <p class="text-white-50 lh-lg">Projeto de Extensão do curso de graduação em Turismo, do Centro de Comunicação e Artes (CCTA), da Universidade Federal da Paraíba (UFPB).</p>
+                    <p class="text-secondary lh-lg mb-4"> Projeto de Extensão do curso de graduação em Turismo, do Centro de Comunicação e Artes (CCTA), da Universidade Federal da Paraíba (UFPB).</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-outline-secondary border-0 bg-secondary bg-opacity-25 rounded-circle"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-secondary border-0 bg-secondary bg-opacity-25 rounded-circle"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-outline-secondary border-0 bg-secondary bg-opacity-25 rounded-circle"><i class="bi bi-youtube"></i></a>
+                    </div>
                 </div>
                 <div class="col-md-3">
-                    <h5 class="fw-bold mb-4">Navegação</h5>
+                    <h5 class="fw-bold mb-4 text-white">Navegação</h5>
                     <ul class="list-unstyled lh-lg">
-                        <li><a href="#" class="text-white-50 text-decoration-none" onclick="navigate('inventario', document.querySelector('.nav-link[onclick*=\\'inventario\\']'))"><i class="bi bi-chevron-right text-danger me-2"></i>Inventário</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none" onclick="navigate('noticias', document.querySelector('.nav-link[onclick*=\\'noticias\\']'))"><i class="bi bi-chevron-right text-danger me-2"></i>Notícias</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none" onclick="navigate('contato', document.querySelector('.nav-link[onclick*=\\'contato\\']'))"><i class="bi bi-chevron-right text-danger me-2"></i>Contato</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-white transition" onclick="navigate('inventario', document.getElementById('menu-inventario'))"><i class="bi bi-chevron-right small text-danger me-2"></i>Inventário</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-white transition" onclick="navigate('noticias', document.getElementById('menu-noticias'))"><i class="bi bi-chevron-right small text-danger me-2"></i>Notícias</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-white transition" onclick="navigate('contato', document.getElementById('menu-contato'))"><i class="bi bi-chevron-right small text-danger me-2"></i>Contato</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="fw-bold mb-4">Sobre</h5>
-                    <p class="text-white-50">Desenvolvido para a disciplina de Internet IV, do Curso de Comunicação em Mídias Digitais da UFPB.</p>
-                    <p class="text-white-50 small mt-3"><i class="bi bi-code-slash text-danger me-1"></i> Alunos: Ana Vitória, Mª Eduarda Marques e Samuel Cintra</p>
+                    <h5 class="fw-bold mb-4 text-white">Sobre o Projeto</h5>
+                    <p class="text-secondary mb-1">Projeto desenvolvido para disciplina de Internet IV, do Curso de Comunicação em Mídias Digitais da UFPB.</p>
+                    <p class="text-secondary small mt-3"><i class="bi bi-code-slash text-danger me-1"></i> Alunos: Ana Vitória, Mª Eduarda Marques e Samuel Cintra</p>
                 </div>
             </div>
-            <div class="border-top border-secondary border-opacity-25 pt-4 mt-4 d-flex flex-column flex-md-row justify-content-between align-items-center text-white-50 small">
+            <div class="border-top border-secondary border-opacity-25 pt-4 mt-4 d-flex flex-column flex-md-row justify-content-between align-items-center text-secondary small">
                 <span>&copy; 2026 Portal Paraíba Criativa. Todos os direitos reservados.</span>
-                <span>UFPB - Paraíba, Brasil.</span>
+                <span class="mt-2 mt-md-0">Paraíba, Brasil.</span>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap 5 JS Bundle -->
+    <!-- Bootstrap 5 JS Bundle com Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- SPA Navigation Script -->
+    <!-- Script de Navegação SPA -->
     <script>
         function navigate(pageId, navElement) {
-            // Esconde todas as seções
+            // Esconde todas as sections
             document.querySelectorAll('.page-view').forEach(function(el) {
                 el.classList.remove('active');
             });
-            // Ativa a seção alvo
-            const targetPage = document.getElementById(pageId);
-            if(targetPage) {
-                targetPage.classList.add('active');
-            }
+            // Mostra a selecionada
+            document.getElementById(pageId).classList.add('active');
             
-            // Gerencia classes ativas na navbar
+            // Remove 'active' de todos os links do menu
             document.querySelectorAll('.nav-link').forEach(function(link) {
                 link.classList.remove('active');
             });
-
-            if (navElement && navElement.classList.contains('nav-link')) {
+            
+            // Adiciona 'active' no link recebido como parâmetro (se existir)
+            if (navElement) {
                 navElement.classList.add('active');
             }
             
-            // Rola suavemente para o topo
+            // Rola para o topo suavemente
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
             // Fecha o menu mobile do Bootstrap se estiver aberto
-            const navbarCollapse = document.querySelector('.navbar-collapse');
             const navbarToggler = document.querySelector('.navbar-toggler');
-            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            if (navbarCollapse.classList.contains('show')) {
                 navbarToggler.click();
             }
         }
