@@ -13,7 +13,8 @@
     <!-- Custom CSS -->
     <style>
         :root {
-            --pb-red: #D32F2F;
+            /* Paleta baseada na identidade da Paraíba Criativa */
+            --pb-red: #D32F2F;      
             --pb-red-dark: #b71c1c;
             --pb-yellow: #FBC02D;
             --pb-blue: #1976D2;
@@ -27,6 +28,7 @@
             color: var(--pb-dark);
         }
 
+        /* Topbar Institucional */
         .topbar {
             background-color: #1a1a1a;
             color: #ccc;
@@ -34,6 +36,7 @@
             letter-spacing: 0.5px;
         }
 
+        /* Navbar Customização - Menu Vermelho */
         .bg-pb-red {
             background-color: var(--pb-red) !important;
         }
@@ -60,12 +63,14 @@
             color: var(--pb-yellow) !important;
         }
 
+        /* Hero Cards */
         .hero-card {
             border: none;
             border-radius: 6px;
             overflow: hidden;
             transition: transform 0.2s ease;
             position: relative;
+            cursor: pointer; /* Mãozinha em todos os banners principais */
         }
         
         .hero-card:hover {
@@ -102,6 +107,7 @@
         .hero-main { height: 450px; }
         .hero-sub { height: 215px; }
 
+        /* Badges de Categoria */
         .badge-custom {
             font-size: 0.75rem;
             font-weight: 700;
@@ -114,12 +120,13 @@
         .badge-musica { background-color: var(--pb-yellow); color: #000; }
         .badge-turismo { background-color: var(--pb-blue); color: white; }
 
+        /* Cards Padrão */
         .modern-card {
             border: none;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
-            cursor: pointer;
+            cursor: pointer; /* Mãozinha em todos os cards menores */
         }
         .modern-card:hover {
             box-shadow: 0 8px 15px rgba(0,0,0,0.1);
@@ -131,6 +138,7 @@
             height: 200px;
         }
 
+        /* SPAs View Management */
         .page-view { display: none; animation: fadeIn 0.4s ease-in-out; }
         .page-view.active { display: block; }
 
@@ -139,6 +147,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        /* Títulos de Seção */
         .section-title {
             position: relative;
             padding-bottom: 10px;
@@ -172,10 +181,10 @@
         </div>
     </div>
 
-    <!-- Main Navigation - Menu Vermelho -->
+    <!-- Main Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-pb-red sticky-top shadow">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="#" onclick="navigate('home', this)">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#" onclick="event.preventDefault(); navigate('home')">
                 <i class="bi bi-sun-fill text-warning fs-3"></i> 
                 <span>Paraíba<span class="fw-light">Criativa</span></span>
             </a>
@@ -186,10 +195,9 @@
             
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
-                    <!-- IDs adicionados para o JavaScript poder localizar facilmente -->
-                    <li class="nav-item"><a class="nav-link" id="menu-inventario" onclick="navigate('inventario', this)">Inventário</a></li>
-                    <li class="nav-item"><a class="nav-link" id="menu-noticias" onclick="navigate('noticias', this)">Notícias</a></li>
-                    <li class="nav-item"><a class="nav-link" id="menu-contato" onclick="navigate('contato', this)">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="navigate('inventario', this)">Inventário</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="navigate('noticias', this)">Notícias</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="navigate('contato', this)">Contato</a></li>
                 </ul>
                 <form class="d-flex ms-lg-4 mt-3 mt-lg-0">
                     <div class="input-group">
@@ -208,7 +216,8 @@
         <section id="home" class="page-view active">
             <div class="row g-3 mb-5">
                 <div class="col-lg-8">
-                    <div class="card bg-dark text-white hero-card hero-main" onclick="navigate('noticia-interna', document.getElementById('menu-noticias'))">
+                    <!-- Apenas para visualização, sem onclick -->
+                    <div class="card bg-dark text-white hero-card hero-main">
                         <img src="Junina-Fogueirinha-1024x576.jpg" class="card-img" alt="São João">
                         <div class="card-img-overlay">
                             <span class="badge badge-custom badge-cultura mb-3 align-self-start">Patrimônio Imaterial</span>
@@ -218,14 +227,16 @@
                     </div>
                 </div>
                 <div class="col-lg-4 d-flex flex-column gap-3">
-                    <div class="card bg-dark text-white hero-card hero-sub" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                    <!-- Apenas para visualização, sem onclick -->
+                    <div class="card bg-dark text-white hero-card hero-sub">
                         <img src="artesanato.jpg" class="card-img" alt="Artesanato">
                         <div class="card-img-overlay p-3">
                             <span class="badge badge-custom badge-turismo mb-2 align-self-start">Artesanato</span>
                             <h3 class="card-title hero-title fs-4">A fonte de renda do Cariri Paraibano</h3>
                         </div>
                     </div>
-                    <div class="card bg-dark text-white hero-card hero-sub" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                    <!-- Apenas para visualização, sem onclick -->
+                    <div class="card bg-dark text-white hero-card hero-sub">
                         <img src="jack.jpg" class="card-img" alt="Praia">
                         <div class="card-img-overlay p-3">
                             <span class="badge badge-custom badge-musica mb-2 align-self-start">Música</span>
@@ -237,12 +248,13 @@
 
             <div class="d-flex justify-content-between align-items-end mb-4">
                 <h3 class="section-title m-0">Destaques do Inventário</h3>
-                <button class="btn btn-outline-danger btn-sm fw-bold" onclick="navigate('inventario', document.getElementById('menu-inventario'))">Acervo Completo <i class="bi bi-arrow-right"></i></button>
+                <button class="btn btn-outline-danger btn-sm fw-bold" onclick="navigate('inventario')">Acervo Completo <i class="bi bi-arrow-right"></i></button>
             </div>
             
             <div class="row g-4 mb-5">
                 <div class="col-md-4">
-                    <div class="card h-100 modern-card" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                    <!-- Único card da Home com onclick (Centro Cultural) para manter a consistência -->
+                    <div class="card h-100 modern-card border-danger" onclick="navigate('verbete')">
                         <img src="centro cultural.jpg" class="card-img-top" alt="Centro Histórico">
                         <div class="card-body d-flex flex-column">
                             <span class="text-danger small fw-bold mb-2 text-uppercase">Arquitetura</span>
@@ -253,7 +265,8 @@
                 </div>
                 
                 <div class="col-md-4">
-                    <div class="card h-100 modern-card" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                    <!-- Apenas para visualização, sem onclick -->
+                    <div class="card h-100 modern-card">
                         <img src="Pedra-do-inga.jpg" class="card-img-top" alt="Pedra do Ingá">
                         <div class="card-body d-flex flex-column">
                             <span class="text-danger small fw-bold mb-2 text-uppercase">Patrimônio Natural</span>
@@ -264,11 +277,12 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm bg-pb-red text-white">
+                    <!-- Apenas para visualização (com link no botão interno) -->
+                    <div class="card h-100 border-0 shadow-sm bg-pb-red text-white" style="cursor: default;">
                         <div class="card-body p-4 d-flex flex-column justify-content-center align-items-center text-center">
                             <i class="bi bi-map text-warning display-3 mb-3"></i>
                             <h4 class="fw-bold mb-3">Mapeamento Cultural</h4>
-                            <p class="small mb-4 opacity-75">Conheça, explore e ajude a preserve a riqueza material e imaterial dos 223 municípios do nosso estado.</p>
+                            <p class="small mb-4 opacity-75">Conheça, explore e ajude a preservar a riqueza material e imaterial dos 223 municípios do nosso estado.</p>
                             <a href="https://www.google.com/maps/place/Paraíba" target="_blank" class="btn btn-warning fw-bold text-dark w-100">Acessar Mapa da Paraíba</a>
                         </div>
                     </div>
@@ -280,7 +294,7 @@
         <section id="inventario" class="page-view">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#" class="text-danger text-decoration-none" onclick="navigate('home', null)">Início</a></li>
+                    <li class="breadcrumb-item"><a href="#" class="text-danger text-decoration-none" onclick="event.preventDefault(); navigate('home')">Início</a></li>
                     <li class="breadcrumb-item active text-secondary">Inventário Cultural</li>
                 </ol>
             </nav>
@@ -307,10 +321,10 @@
                 </div>
             </div>
 
-            <!-- Grid de Inventário (Cartões Modernos) -->
             <div class="row g-4">
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                    <!-- ÚNICO CARD COM ONCLICK E SEM O 'VER DETALHES' -->
+                    <div class="card modern-card h-100 border-danger" onclick="navigate('verbete')">
                         <img src="centro cultural.jpg" class="card-img-top" alt="Card image">
                         <div class="card-body">
                             <span class="badge bg-secondary mb-2">Arquitetura</span>
@@ -320,17 +334,19 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                    <!-- Apenas visualização, sem onclick -->
+                    <div class="card modern-card h-100">
                         <img src="Sivuca-1.jpg" class="card-img-top" alt="Card image">
                         <div class="card-body">
                             <span class="badge bg-secondary mb-2">Música</span>
                             <h5 class="card-title fw-bold">Sivuca</h5>
-                            <p class="card-text text-muted small">Mestre Sivuca foi um acordeonista, violonista, guitarrista, pianista, percussionista, maestro, arranjador, compositor, orquestrador e cantor. Um dos mais importantes músicos do século XX.</p>
+                            <p class="card-text text-muted small">Mestre Sivuca foi um acordeonista, violonista, guitarrista, pianista, percussionista, maestro, arranjador, compositor, orquestrador e cantor.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                    <!-- Apenas visualização, sem onclick -->
+                    <div class="card modern-card h-100">
                         <img src="Junina-Fogueirinha-1024x576.jpg" class="card-img-top" alt="Card image">
                         <div class="card-body">
                             <span class="badge bg-secondary mb-2">Cultura Popular</span>
@@ -340,12 +356,13 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                    <!-- Apenas visualização, sem onclick -->
+                    <div class="card modern-card h-100">
                     <img src="Arroz-de-leite-com-carne-de-sol.jpg" class="card-img-top" alt="Carne de Sol de Picuí">
                         <div class="card-body">
                             <span class="badge bg-secondary mb-2">Gastronomia</span>
                             <h5 class="card-title fw-bold">Arroz de Leite com Carne de Sol</h5>
-                            <p class="card-text text-muted small">O  arroz de leite é um prato típico da culinária nordestina, amado principalmente pelo povo paraibano. Sua melhor combinação é feita com carne de sol.</p>
+                            <p class="card-text text-muted small">O arroz de leite é um prato típico da culinária nordestina, amado principalmente pelo povo paraibano. Sua melhor combinação é feita com carne de sol.</p>
                         </div>
                     </div>
                 </div>
@@ -354,10 +371,10 @@
             <nav class="mt-5">
                 <ul class="pagination justify-content-center">
                     <li class="page-item disabled"><a class="page-link text-muted" href="#" onclick="event.preventDefault()">Anterior</a></li>
-                    <li class="page-item active"><a class="page-link bg-pb-red border-danger text-white" href="#" onclick="event.preventDefault(); navigate('inventario', document.getElementById('menu-inventario'))">1</a></li>
-                    <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault(); navigate('inventario-p2', document.getElementById('menu-inventario'))">2</a></li>
+                    <li class="page-item active"><a class="page-link bg-pb-red border-danger text-white" href="#" onclick="event.preventDefault(); navigate('inventario')">1</a></li>
+                    <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault(); navigate('inventario-p2')">2</a></li>
                     <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault()">3</a></li>
-                    <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault(); navigate('inventario-p2', document.getElementById('menu-inventario'))">Próximo</a></li>
+                    <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault(); navigate('inventario-p2')">Próximo</a></li>
                 </ul>
             </nav>
         </section>
@@ -366,7 +383,7 @@
         <section id="inventario-p2" class="page-view">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#" class="text-danger text-decoration-none" onclick="navigate('home', null)">Início</a></li>
+                    <li class="breadcrumb-item"><a href="#" class="text-danger text-decoration-none" onclick="event.preventDefault(); navigate('home')">Início</a></li>
                     <li class="breadcrumb-item active text-secondary">Inventário Cultural - Página 2</li>
                 </ol>
             </nav>
@@ -391,8 +408,9 @@
             </div>
 
             <div class="row g-4">
+                <!-- Apenas visualização, sem onclick -->
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                    <div class="card modern-card h-100">
                         <img src="https://images.unsplash.com/photo-1599939571322-792a326e90fb?q=80&w=500&auto=format&fit=crop" class="card-img-top" alt="Fortaleza">
                         <div class="card-body">
                             <span class="badge bg-secondary mb-2">Arquitetura Militar</span>
@@ -402,7 +420,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                    <div class="card modern-card h-100">
                         <img src="https://images.unsplash.com/photo-1628169115201-9a99723cf799?q=80&w=500&auto=format&fit=crop" class="card-img-top" alt="Farol do Cabo Branco">
                         <div class="card-body">
                             <span class="badge bg-secondary mb-2">Monumento</span>
@@ -412,7 +430,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                    <div class="card modern-card h-100">
                         <div class="bg-light d-flex align-items-center justify-content-center" style="height: 200px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
                             <i class="bi bi-people text-muted fs-1 opacity-25"></i>
                         </div>
@@ -424,7 +442,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('verbete', document.getElementById('menu-inventario'))">
+                    <div class="card modern-card h-100">
                         <img src="https://images.unsplash.com/photo-1506509536831-7e8cc40e53a5?q=80&w=500&auto=format&fit=crop" class="card-img-top" alt="Pôr do Sol">
                         <div class="card-body">
                             <span class="badge bg-secondary mb-2">Patrimônio Imaterial</span>
@@ -437,9 +455,9 @@
             
             <nav class="mt-5">
                 <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault(); navigate('inventario', document.getElementById('menu-inventario'))">Anterior</a></li>
-                    <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault(); navigate('inventario', document.getElementById('menu-inventario'))">1</a></li>
-                    <li class="page-item active"><a class="page-link bg-pb-red border-danger text-white" href="#" onclick="event.preventDefault(); navigate('inventario-p2', document.getElementById('menu-inventario'))">2</a></li>
+                    <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault(); navigate('inventario')">Anterior</a></li>
+                    <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault(); navigate('inventario')">1</a></li>
+                    <li class="page-item active"><a class="page-link bg-pb-red border-danger text-white" href="#" onclick="event.preventDefault(); navigate('inventario-p2')">2</a></li>
                     <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault()">3</a></li>
                     <li class="page-item"><a class="page-link text-danger" href="#" onclick="event.preventDefault()">Próximo</a></li>
                 </ul>
@@ -450,8 +468,8 @@
         <section id="verbete" class="page-view">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#" class="text-danger text-decoration-none" onclick="navigate('home', null)">Início</a></li>
-                    <li class="breadcrumb-item"><a href="#" class="text-danger text-decoration-none" onclick="navigate('inventario', document.getElementById('menu-inventario'))">Inventário</a></li>
+                    <li class="breadcrumb-item"><a href="#" class="text-danger text-decoration-none" onclick="event.preventDefault(); navigate('home')">Início</a></li>
+                    <li class="breadcrumb-item"><a href="#" class="text-danger text-decoration-none" onclick="event.preventDefault(); navigate('inventario')">Inventário</a></li>
                     <li class="breadcrumb-item active text-secondary">Centro Cultural São Francisco</li>
                 </ol>
             </nav>
@@ -467,10 +485,10 @@
                     </div>
                     
                     <article class="fs-5 lh-lg text-dark">
-                        <p>O <strong>Centro Cultural São Francisco</strong>, localizado na praça de mesmo nome, no centro histórico de João Pessoa, funciona em um complexo arquitetônico formado pela Igreja de São Francisco e pelo Convento de Santo Antônio, além da Capela da Ordem Terceira de São Francisco, a Capela de São Benedito, a Casa de Oração dos Terceiros (chamada de Capela Dourada) e o Claustro da Ordem Terceira.</p>
+                        <p>O <strong>Centro Cultural São Francisco</strong>, localizado na praça de mesmo nome, no centro histórico de João Pessoa, funciona em um complexo arquitetônico formado pela Igreja de São Francisco e pelo Convento de Santo Antônio, além da Capela da Ordem Terceira de São Francisco.</p>
                         
                         <h3 class="fw-bold mt-5 mb-3">Arquitetura e História da Fundação</h3>
-                        <p>A construção do conjunto iniciou-se em 1589 com o projeto do Frei Francisco dos Santos e só foi concluída em 1788. A arquitetura, pautada na opulência do barroco tropical, se mistura à azulejaria portuguesa que narra a paixão de Cristo nos pátios externos, tornando o espaço um verdadeiro museu a céu aberto da história colonial paraibana.</p>
+                        <p>A construção do conjunto iniciou-se em 1589 com o projeto do Frei Francisco dos Santos e só foi concluída em 1788. A arquitetura, pautada na opulência do barroco tropical, se mistura à azulejaria portuguesa.</p>
                         
                         <div class="p-4 bg-light rounded border-start border-4 border-danger my-5">
                             <h5 class="fw-bold text-danger"><i class="bi bi-quote"></i> Curiosidade Histórica</h5>
@@ -478,25 +496,15 @@
                         </div>
                         
                         <h3 class="fw-bold mt-5 mb-3">Importância Cultural e Turística</h3>
-                        <p>Sendo um dos monumentos históricos mais visitados de João Pessoa, o Centro Cultural São Francisco não é apenas um templo religioso, mas um polo de estudos sobre a arte colonial. Estudantes, historiadores e turistas de todo o mundo visitam o complexo para observar os entalhes em madeira folheada a ouro e os painéis que resistiram aos séculos.</p>
-                        <p class="mb-5">Atualmente, o espaço sedia exposições temporárias de artistas nordestinos, além de apresentações de música erudita, mantendo viva a vocação do local como um grande difusor de arte e cultura.</p>
+                        <p>Sendo um dos monumentos históricos mais visitados de João Pessoa, o Centro Cultural São Francisco não é apenas um templo religioso, mas um polo de estudos sobre a arte colonial.</p>
                     </article>
                 </div>
                 
-                <!-- Sidebar (Ficha Técnica) -->
                 <div class="col-lg-4 mt-5 mt-lg-0">
                     <div class="position-sticky" style="top: 110px; z-index: 10;">
                         <div class="card border-0 bg-white shadow-sm p-4" style="border-top: 4px solid var(--pb-red) !important;">
                             <h4 class="fw-bold mb-4">Ficha Técnica</h4>
                             
-                            <div class="d-flex mb-3 align-items-start">
-                                <i class="bi bi-tag-fill text-danger me-3 fs-5"></i>
-                                <div>
-                                    <h6 class="fw-bold mb-1">Categoria</h6>
-                                    <p class="text-muted small m-0">Arquitetura Histórica</p>
-                                </div>
-                            </div>
-                        
                             <div class="d-flex mb-3 align-items-start">
                                 <i class="bi bi-geo-alt-fill text-danger me-3 fs-5"></i>
                                 <div>
@@ -522,7 +530,7 @@
                         </div>
                     </div>
                 </div>
-            </div> <!-- Fecha a row -->
+            </div>
         </section>
 
         <!-- ==================== PÁGINA: NOTÍCIAS ==================== -->
@@ -534,18 +542,20 @@
                 <div class="col-lg-4 mt-3 mt-lg-0">
                     <div class="input-group shadow-sm">
                         <span class="input-group-text bg-white border-end-0"><i class="bi bi-funnel text-muted"></i></span>
-                        <select class="form-select border-start-0" id="filtroNoticiasCategoria">
+                        <select class="form-select border-start-0">
                             <option value="todas" selected>Todas as Notícias</option>
                             <option value="eventos">Eventos e Editais</option>
                             <option value="institucional">Cultura</option>
+                            <option value="patrimonio">Institucional</option>
                         </select>
                     </div>
                 </div>
             </div>
             
             <div class="row g-4">
+                <!-- Apenas para visualização, sem onclick -->
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('noticia-interna', document.getElementById('menu-noticias'))">
+                    <div class="card modern-card h-100">
                         <img src="MAPP-1.jpeg" class="card-img-top" alt="Notícia 1">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-center mb-2">
@@ -554,37 +564,34 @@
                             </div>
                             <h5 class="card-title fw-bold text-dark mt-2">Paraíba Criativa acompanha abertura do 42º Salão do Artesanato</h5>
                             <p class="card-text text-secondary small flex-grow-1">Realizado durante o período do Maior São João do Mundo, o salão acontece no terreno ao lado do Village Premium Hotel.</p>
-                            <span class="btn btn-outline-danger btn-sm fw-bold w-100 mt-2">Ler matéria <i class="bi bi-arrow-right ms-1"></i></span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('noticia-interna-2', document.getElementById('menu-noticias'))">
+                    <div class="card modern-card h-100">
                         <img src="Gua-e-o-Guloso-2-1024x682.png" class="card-img-top" alt="Notícia 2">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <span class="badge bg-primary">Cultura</span>
                                 <span class="text-muted small fw-semibold"><i class="bi bi-calendar3 me-1"></i> 10 Jul 2026</span>
                             </div>
-                            <h5 class="card-title fw-bold text-dark mt-2">Espetáculo infantil ‘Guã e o Guloso: O Musical’ estreia neste final de semana</h5>
-                            <p class="card-text text-secondary small flex-grow-1">Nos dias 06 e 07 de junho, o público de João Pessoa poderá acompanhar a estreia no tradicional Teatro Lima Penante.</p>
-                            <span class="btn btn-outline-danger btn-sm fw-bold w-100 mt-2">Ler matéria <i class="bi bi-arrow-right ms-1"></i></span>
+                            <h5 class="card-title fw-bold text-dark mt-2">Espetáculo infantil ‘Guã e o Guloso’ estreia no Teatro Lima Penante</h5>
+                            <p class="card-text text-secondary small flex-grow-1">Nos dias 06 e 07 de junho, o público de João Pessoa poderá acompanhar a estreia do musical infantil.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4 col-sm-6">
-                    <div class="card modern-card h-100" onclick="navigate('noticia-interna', document.getElementById('menu-noticias'))">
+                    <div class="card modern-card h-100">
                         <img src="Teatro-Severino-Cabral.jpg" class="card-img-top" alt="Notícia 3">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <span class="badge bg-warning text-dark">Cultura</span>
                                 <span class="text-muted small fw-semibold"><i class="bi bi-calendar3 me-1"></i> 05 Jul 2026</span>
                             </div>
-                            <h5 class="card-title fw-bold text-dark mt-2">Espetáculo ‘As Luas em Mim’ retorna aos palcos</h5>
-                            <p class="card-text text-secondary small flex-grow-1">O espetáculo teatral volta aos palcos em apresentação única no Teatro Paulo Pontes, anexo ao Teatro Severino Cabral.</p>
-                            <span class="btn btn-outline-danger btn-sm fw-bold w-100 mt-2">Ler matéria <i class="bi bi-arrow-right ms-1"></i></span>
+                            <h5 class="card-title fw-bold text-dark mt-2">Espetáculo ‘As Luas em Mim’ retorna aos palcos com reflexão</h5>
+                            <p class="card-text text-secondary small flex-grow-1">O espetáculo teatral As Luas em Mim volta aos palcos em apresentação única no Teatro Paulo Pontes.</p>
                         </div>
                     </div>
                 </div>
@@ -653,7 +660,7 @@
         <div class="container mt-3">
             <div class="row g-4 mb-4">
                 <div class="col-md-5 pe-md-5">
-                    <a class="navbar-brand d-flex align-items-center gap-2 mb-3" href="#" onclick="navigate('home', null)">
+                    <a class="navbar-brand d-flex align-items-center gap-2 mb-3" href="#" onclick="event.preventDefault(); navigate('home')">
                         <i class="bi bi-sun-fill text-warning fs-3"></i> 
                         <span>Paraíba<span class="fw-light">Criativa</span></span>
                     </a>
@@ -667,9 +674,10 @@
                 <div class="col-md-3">
                     <h5 class="fw-bold mb-4 text-white">Navegação</h5>
                     <ul class="list-unstyled lh-lg">
-                        <li><a href="#" class="text-secondary text-decoration-none hover-white transition" onclick="navigate('inventario', document.getElementById('menu-inventario'))"><i class="bi bi-chevron-right small text-danger me-2"></i>Inventário</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none hover-white transition" onclick="navigate('noticias', document.getElementById('menu-noticias'))"><i class="bi bi-chevron-right small text-danger me-2"></i>Notícias</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none hover-white transition" onclick="navigate('contato', document.getElementById('menu-contato'))"><i class="bi bi-chevron-right small text-danger me-2"></i>Contato</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-white transition" onclick="event.preventDefault(); navigate('home')"><i class="bi bi-chevron-right small text-danger me-2"></i>Início</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-white transition" onclick="event.preventDefault(); navigate('inventario')"><i class="bi bi-chevron-right small text-danger me-2"></i>Inventário</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-white transition" onclick="event.preventDefault(); navigate('noticias')"><i class="bi bi-chevron-right small text-danger me-2"></i>Notícias</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-white transition" onclick="event.preventDefault(); navigate('contato')"><i class="bi bi-chevron-right small text-danger me-2"></i>Contato</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -690,22 +698,39 @@
     
     <!-- Script de Navegação SPA -->
     <script>
-        function navigate(pageId, navElement) {
+        function navigate(pageId, navElement = null) {
             // Esconde todas as sections
             document.querySelectorAll('.page-view').forEach(function(el) {
                 el.classList.remove('active');
             });
-            // Mostra a selecionada
-            document.getElementById(pageId).classList.add('active');
             
-            // Remove 'active' de todos os links do menu
+            // Mostra a seção desejada se ela existir
+            const targetPage = document.getElementById(pageId);
+            if(targetPage) {
+                targetPage.classList.add('active');
+            } else {
+                console.warn("Seção não encontrada: " + pageId);
+                return;
+            }
+            
+            // Remove 'active' de todos os links do menu do topo
             document.querySelectorAll('.nav-link').forEach(function(link) {
                 link.classList.remove('active');
             });
             
-            // Adiciona 'active' no link recebido como parâmetro (se existir)
-            if (navElement) {
+            // Logica para iluminar a aba correta automaticamente no Menu Principal
+            if (navElement && navElement.classList.contains('nav-link')) {
                 navElement.classList.add('active');
+            } else {
+                // Inteligência para conectar sub-páginas às abas principais do topo
+                let baseId = pageId;
+                if (pageId.includes('inventario') || pageId === 'verbete') baseId = 'inventario';
+                if (pageId.includes('noticia')) baseId = 'noticias';
+                
+                const mainNavLink = document.querySelector(`.nav-link[onclick*='${baseId}']`);
+                if (mainNavLink) {
+                    mainNavLink.classList.add('active');
+                }
             }
             
             // Rola para o topo suavemente
@@ -714,7 +739,7 @@
             // Fecha o menu mobile do Bootstrap se estiver aberto
             const navbarToggler = document.querySelector('.navbar-toggler');
             const navbarCollapse = document.querySelector('.navbar-collapse');
-            if (navbarCollapse.classList.contains('show')) {
+            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
                 navbarToggler.click();
             }
         }
