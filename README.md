@@ -12,8 +12,10 @@ Comparação entre o design original do Paraíba Criativa e a que desenvolvemos 
 # 1 Página Inicial (home)
 ### Antes
 <img width="1366" height="768" alt="1original" src="https://github.com/user-attachments/assets/35551fc2-30bf-4f8d-a66f-3d0fb11e8c9a" />
+
 ### Depois
 <img width="1366" height="768" alt="1refeito" src="https://github.com/user-attachments/assets/d296c37d-d027-4973-b991-822b80474e17" />
+
 ### Melhorias implementadas
 colar texto 
 
