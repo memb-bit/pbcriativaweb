@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verbete - Paraíba Criativa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root { --pb-red: #D32F2F; --pb-red-dark: #b71c1c; --pb-yellow: #FBC02D; --pb-blue: #1976D2; --pb-dark: #212529; --pb-light: #f4f5f7; }
+        body { font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--pb-light); color: var(--pb-dark); }
+        .topbar { background-color: #1a1a1a; color: #ccc; font-size: 0.8rem; letter-spacing: 0.5px; }
+        .bg-pb-red { background-color: var(--pb-red) !important; }
+        .navbar-brand { font-weight: 900; color: #ffffff !important; font-size: 1.5rem; letter-spacing: -0.5px; }
+        .navbar-dark .navbar-nav .nav-link { color: rgba(255, 255, 255, 0.9); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; padding: 0.5rem 1rem; transition: all 0.2s ease-in-out; }
+        .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link.active { color: var(--pb-yellow) !important; }
+        .badge-custom { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 0.4em 0.8em; border-radius: 4px; }
+        .badge-turismo { background-color: var(--pb-blue); color: white; }
+        .page-view { display: block; animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="topbar py-2 d-none d-md-block">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span>Portal do Patrimônio Cultural e Criativo da Paraíba</span>
+            <div class="d-flex gap-3">
+                <a href="#" class="text-light text-decoration-none"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-light text-decoration-none"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-light text-decoration-none"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-pb-red sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <i class="bi bi-sun-fill text-warning fs-3"></i> 
+                <span>Paraíba<span class="fw-light">Criativa</span></span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
+                    <li class="nav-item"><a class="nav-link active" href="inventario.html">Inventário</a></li>
+                    <li class="nav-item"><a class="nav-link" href="noticias.html">Notícias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+                </ul>
+                <form class="d-flex ms-lg-4 mt-3 mt-lg-0">
+                    <div class="input-group">
+                        <input class="form-control form-control-sm border-0" type="search" placeholder="Buscar no portal...">
+                        <button class="btn btn-warning btn-sm fw-bold" type="button"><i class="bi bi-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <section id="verbete" class="page-view">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-danger text-decoration-none">Início</a></li>
+                    <li class="breadcrumb-item"><a href="inventario.html" class="text-danger text-decoration-none">Inventário</a></li>
+                    <li class="breadcrumb-item active text-secondary">Centro Cultural São Francisco</li>
+                </ol>
+            </nav>
+
+            <div class="row mt-4">
+                <div class="col-lg-8">
+                    <span class="badge badge-custom badge-turismo mb-3">Arquitetura</span>
+                    <h1 class="fw-bolder mb-3 text-dark">Centro Cultural São Francisco</h1>
+                    <p class="lead text-secondary fw-normal mb-4">É um complexo arquitetônico cultural e religioso formado pelo Convento Igreja de Santo Antônio, Casa de Oração, e Claustro da Ordem Terceira de São Francisco.</p>
+                    
+                    <div class="position-relative mb-5">
+                        <img src="centro cultural.jpg" class="img-fluid rounded shadow" alt="Igreja de São Francisco">
+                    </div>
+                    
+                    <article class="fs-5 lh-lg text-dark">
+                        <p>O <strong>Centro Cultural São Francisco</strong>, localizado na praça de mesmo nome, no centro histórico de João Pessoa, funciona em um complexo arquitetônico formado pela Igreja de São Francisco e pelo Convento de Santo Antônio, além da Capela da Ordem Terceira de São Francisco.</p>
+                        
+                        <h3 class="fw-bold mt-5 mb-3">Arquitetura e História da Fundação</h3>
+                        <p>A construção do conjunto iniciou-se em 1589 com o projeto do Frei Francisco dos Santos e só foi concluída em 1788. A arquitetura, pautada na opulência do barroco tropical, se mistura à azulejaria portuguesa.</p>
+                        
+                        <div class="p-4 bg-light rounded border-start border-4 border-danger my-5">
+                            <h5 class="fw-bold text-danger"><i class="bi bi-quote"></i> Curiosidade Histórica</h5>
+                            <p class="m-0 fs-6">A Igreja possui um relógio de sol no seu adro, entalhado em pedra calcária, que servia para orientar os freis nos horários das orações e missas diárias durante o período colonial.</p>
+                        </div>
+                        
+                        <h3 class="fw-bold mt-5 mb-3">Importância Cultural e Turística</h3>
+                        <p>Sendo um dos monumentos históricos mais visitados de João Pessoa, o Centro Cultural São Francisco não é apenas um templo religioso, mas um polo de estudos sobre a arte colonial.</p>
+                    </article>
+                </div>
+                
+                <div class="col-lg-4 mt-5 mt-lg-0">
+                    <div class="position-sticky" style="top: 110px; z-index: 10;">
+                        <div class="card border-0 bg-white shadow-sm p-4" style="border-top: 4px solid var(--pb-red) !important;">
+                            <h4 class="fw-bold mb-4">Ficha Técnica</h4>
+                            
+                            <div class="d-flex mb-3 align-items-start">
+                                <i class="bi bi-geo-alt-fill text-danger me-3 fs-5"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Localização</h6>
+                                    <p class="text-muted small m-0">Praça São Francisco, s/n - Centro Histórico, João Pessoa - PB</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex mb-3 align-items-start">
+                                <i class="bi bi-shield-check text-danger me-3 fs-5"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Tombamento</h6>
+                                    <p class="text-muted small m-0">IPHAN (1952) / IPHAEP</p>
+                                </div>
+                            </div>
+                            
+                            <hr class="my-4 text-muted">
+                            
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-outline-danger fw-bold"><i class="bi bi-share me-2"></i> Compartilhar</button>
+                                <button class="btn btn-light border"><i class="bi bi-printer me-2"></i> Imprimir Ficha</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-5 mt-auto border-top border-5 border-danger">
+        <div class="container mt-3">
+            <div class="row g-4 mb-4">
+                <div class="col-md-5 pe-md-5">
+                    <a class="navbar-brand d-flex align-items-center gap-2 mb-3" href="index.html">
+                        <i class="bi bi-sun-fill text-warning fs-3"></i> 
+                        <span>Paraíba<span class="fw-light">Criativa</span></span>
+                    </a>
+                    <p class="text-secondary lh-lg mb-4"> Projeto de Extensão do curso de graduação em Turismo, do Centro de Comunicação e Artes (CCTA), da Universidade Federal da Paraíba (UFPB).</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-outline-secondary border-0 bg-secondary bg-opacity-25 rounded-circle"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-secondary border-0 bg-secondary bg-opacity-25 rounded-circle"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-outline-secondary border-0 bg-secondary bg-opacity-25 rounded-circle"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-4 text-white">Navegação</h5>
+                    <ul class="list-unstyled lh-lg">
+                        <li><a href="index.html" class="text-secondary text-decoration-none transition"><i class="bi bi-chevron-right small text-danger me-2"></i>Início</a></li>
+                        <li><a href="inventario.html" class="text-secondary text-decoration-none transition"><i class="bi bi-chevron-right small text-danger me-2"></i>Inventário</a></li>
+                        <li><a href="noticias.html" class="text-secondary text-decoration-none transition"><i class="bi bi-chevron-right small text-danger me-2"></i>Notícias</a></li>
+                        <li><a href="contato.html" class="text-secondary text-decoration-none transition"><i class="bi bi-chevron-right small text-danger me-2"></i>Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-4 text-white">Sobre o Projeto</h5>
+                    <p class="text-secondary mb-1">Projeto desenvolvido para disciplina de Internet IV, do Curso de Comunicação em Mídias Digitais da UFPB.</p>
+                    <p class="text-secondary small mt-3"><i class="bi bi-code-slash text-danger me-1"></i> Alunos: Ana Vitória, Mª Eduarda Marques e Samuel Cintra</p>
+                </div>
+            </div>
+            <div class="border-top border-secondary border-opacity-25 pt-4 mt-4 d-flex flex-column flex-md-row justify-content-between align-items-center text-secondary small">
+                <span>&copy; 2026 Portal Paraíba Criativa. Todos os direitos reservados.</span>
+                <span class="mt-2 mt-md-0">Paraíba, Brasil.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

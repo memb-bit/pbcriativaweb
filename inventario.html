@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventário - Paraíba Criativa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root { --pb-red: #D32F2F; --pb-red-dark: #b71c1c; --pb-yellow: #FBC02D; --pb-blue: #1976D2; --pb-dark: #212529; --pb-light: #f4f5f7; }
+        body { font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--pb-light); color: var(--pb-dark); }
+        .topbar { background-color: #1a1a1a; color: #ccc; font-size: 0.8rem; letter-spacing: 0.5px; }
+        .bg-pb-red { background-color: var(--pb-red) !important; }
+        .navbar-brand { font-weight: 900; color: #ffffff !important; font-size: 1.5rem; letter-spacing: -0.5px; }
+        .navbar-dark .navbar-nav .nav-link { color: rgba(255, 255, 255, 0.9); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; padding: 0.5rem 1rem; transition: all 0.2s ease-in-out; }
+        .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link.active { color: var(--pb-yellow) !important; }
+        .modern-card { border: none; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease; cursor: pointer; }
+        .modern-card:hover { box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .modern-card img { border-top-left-radius: 8px; border-top-right-radius: 8px; object-fit: cover; height: 200px; }
+        .page-view { display: block; animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .section-title { position: relative; padding-bottom: 10px; margin-bottom: 24px; font-weight: 800; color: var(--pb-dark); }
+        .section-title::after { content: ''; position: absolute; left: 0; bottom: 0; height: 4px; width: 50px; background-color: var(--pb-red); border-radius: 2px; }
+    </style>
+</head>
+<body>
+
+    <div class="topbar py-2 d-none d-md-block">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span>Portal do Patrimônio Cultural e Criativo da Paraíba</span>
+            <div class="d-flex gap-3">
+                <a href="#" class="text-light text-decoration-none"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-light text-decoration-none"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-light text-decoration-none"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-pb-red sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <i class="bi bi-sun-fill text-warning fs-3"></i> 
+                <span>Paraíba<span class="fw-light">Criativa</span></span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
+                    <li class="nav-item"><a class="nav-link active" href="inventario.html">Inventário</a></li>
+                    <li class="nav-item"><a class="nav-link" href="noticias.html">Notícias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+                </ul>
+                <form class="d-flex ms-lg-4 mt-3 mt-lg-0">
+                    <div class="input-group">
+                        <input class="form-control form-control-sm border-0" type="search" placeholder="Buscar no portal...">
+                        <button class="btn btn-warning btn-sm fw-bold" type="button"><i class="bi bi-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <section id="inventario" class="page-view">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-danger text-decoration-none">Início</a></li>
+                    <li class="breadcrumb-item active text-secondary">Inventário Cultural</li>
+                </ol>
+            </nav>
+            
+            <div class="row mb-5 align-items-end">
+                <div class="col-lg-8">
+                    <h2 class="section-title">Inventário Cultural</h2>
+                    <p class="text-secondary fs-5 m-0">Registro das artes e culturas da Paraíba</p>
+                </div>
+                <div class="col-lg-4 mt-3 mt-lg-0">
+                    <div class="input-group shadow-sm">
+                        <span class="input-group-text bg-white border-end-0"><i class="bi bi-funnel text-muted"></i></span>
+                        <select class="form-select border-start-0">
+                            <option selected>Todas as Categorias</option>
+                            <option value="1">Arquitetura</option>
+                            <option value="2">Artesanato</option>
+                            <option value="3">Música</option>
+                            <option value="4">Gastronomia Regional</option>
+                            <option value="5">Patrimônio Natural</option>
+                            <option value="6">Personalidades</option>
+                            <option value="7">Cultura Popular</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6">
+                    <div class="card modern-card h-100 border-danger" onclick="window.location.href='verbete.html'">
+                        <img src="centro cultural.jpg" class="card-img-top" alt="Card image">
+                        <div class="card-body">
+                            <span class="badge bg-secondary mb-2">Arquitetura</span>
+                            <h5 class="card-title fw-bold">Centro Cultural São Francisco</h5>
+                            <p class="card-text text-muted small">É um complexo arquitetônico cultural e religioso formado pelo Convento Igreja de Santo Antônio, Casa de Oração, e Claustro da Ordem Terceira de São Francisco.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card modern-card h-100">
+                        <img src="Sivuca-1.jpg" class="card-img-top" alt="Card image">
+                        <div class="card-body">
+                            <span class="badge bg-secondary mb-2">Música</span>
+                            <h5 class="card-title fw-bold">Sivuca</h5>
+                            <p class="card-text text-muted small">Mestre Sivuca foi um acordeonista, violonista, guitarrista, pianista, percussionista, maestro, arranjador, compositor, orquestrador e cantor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card modern-card h-100">
+                        <img src="Junina-Fogueirinha-1024x576.jpg" class="card-img-top" alt="Card image">
+                        <div class="card-body">
+                            <span class="badge bg-secondary mb-2">Cultura Popular</span>
+                            <h5 class="card-title fw-bold">Quadrilha Junina Fogueirinha</h5>
+                            <p class="card-text text-muted small">A Quadrilha Junina Fogueirinha é um símbolo da cultura popular paraibana. Nascida no coração do bairro Cruz das Armas, em João Pessoa.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card modern-card h-100">
+                    <img src="Arroz-de-leite-com-carne-de-sol.jpg" class="card-img-top" alt="Carne de Sol de Picuí">
+                        <div class="card-body">
+                            <span class="badge bg-secondary mb-2">Gastronomia</span>
+                            <h5 class="card-title fw-bold">Arroz de Leite com Carne de Sol</h5>
+                            <p class="card-text text-muted small">O arroz de leite é um prato típico da culinária nordestina, amado principalmente pelo povo paraibano. Sua melhor combinação é feita com carne de sol.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="mt-5">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled"><a class="page-link text-muted" href="#">Anterior</a></li>
+                    <li class="page-item active"><a class="page-link bg-pb-red border-danger text-white" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link text-danger" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link text-danger" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link text-danger" href="#">Próximo</a></li>
+                </ul>
+            </nav>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-5 mt-auto border-top border-5 border-danger">
+        <div class="container mt-3">
+            <div class="row g-4 mb-4">
+                <div class="col-md-5 pe-md-5">
+                    <a class="navbar-brand d-flex align-items-center gap-2 mb-3" href="index.html">
+                        <i class="bi bi-sun-fill text-warning fs-3"></i> 
+                        <span>Paraíba<span class="fw-light">Criativa</span></span>
+                    </a>
+                    <p class="text-secondary lh-lg mb-4"> Projeto de Extensão do curso de graduação em Turismo, do Centro de Comunicação e Artes (CCTA), da Universidade Federal da Paraíba (UFPB).</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-outline-secondary border-0 bg-secondary bg-opacity-25 rounded-circle"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-secondary border-0 bg-secondary bg-opacity-25 rounded-circle"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-outline-secondary border-0 bg-secondary bg-opacity-25 rounded-circle"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-4 text-white">Navegação</h5>
+                    <ul class="list-unstyled lh-lg">
+                        <li><a href="index.html" class="text-secondary text-decoration-none transition"><i class="bi bi-chevron-right small text-danger me-2"></i>Início</a></li>
+                        <li><a href="inventario.html" class="text-secondary text-decoration-none transition"><i class="bi bi-chevron-right small text-danger me-2"></i>Inventário</a></li>
+                        <li><a href="noticias.html" class="text-secondary text-decoration-none transition"><i class="bi bi-chevron-right small text-danger me-2"></i>Notícias</a></li>
+                        <li><a href="contato.html" class="text-secondary text-decoration-none transition"><i class="bi bi-chevron-right small text-danger me-2"></i>Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-4 text-white">Sobre o Projeto</h5>
+                    <p class="text-secondary mb-1">Projeto desenvolvido para disciplina de Internet IV, do Curso de Comunicação em Mídias Digitais da UFPB.</p>
+                    <p class="text-secondary small mt-3"><i class="bi bi-code-slash text-danger me-1"></i> Alunos: Ana Vitória, Mª Eduarda Marques e Samuel Cintra</p>
+                </div>
+            </div>
+            <div class="border-top border-secondary border-opacity-25 pt-4 mt-4 d-flex flex-column flex-md-row justify-content-between align-items-center text-secondary small">
+                <span>&copy; 2026 Portal Paraíba Criativa. Todos os direitos reservados.</span>
+                <span class="mt-2 mt-md-0">Paraíba, Brasil.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
