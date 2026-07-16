@@ -8,4 +8,5 @@ Site do Projeto de Extensão do curso de graduação em Turismo, do Centro de Co
 5. Fale conosco
 # Relatório Visual: Antes e Depois
 Comparação entre o design original do Paraíba Criativa e a que desenvolvemos no projeto. Buscamos manter a estrutura base do portal, fazendo atualizações e melhorias na organização, resposnividade e aspecto visual.
-# 1
+# 1 Página Inicial (home)
+![Antes](files/1original.png)
